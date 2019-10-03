@@ -99,7 +99,15 @@ report("#A5",answer)
 <div id="A6">
 <h3>Create a function that takes a penguin object and returns an object that contains one attribute, the picture of that penguin</h3>
 <script>
-var answer="please complete";
+    
+    var replacepenguin = function(penguin)
+    {
+        var pic = {}
+        pic.image=penguin.picture
+        return pic
+    };
+    
+var answer=replacepenguin;
 report("#A6",answer)    
 </script>
     </div>
@@ -107,8 +115,18 @@ report("#A6",answer)
 <div id="A7">
 <h3>Expand your function from the last one, so that the object it returns not only has a picture attribute, but also new attribute called quizMean, which is the mean of that penguins quiz scores</h3>
 <script>
+    var MeanPicture= function(penguin)
+    {
+        var Obj = {}
+        Obj.image = penguin.picture
+        Obj.mean = d3.mean(penguin.quizes.map(getGrade)) 
+        return Obj
+    };
+    
+    
+
 //be sure to test your function out.
-var answer="please complete";
+var answer=MeanPicture;
 report("#A7",answer)    
 </script>
     </div>
@@ -116,7 +134,8 @@ report("#A7",answer)
 <div id="A8">
 <h3>With one line of code, return a list of objects that contain the picture and meanQuiz grade of all penguins</h3>
 <script>
-var answer="please complete";
+    
+var answer=classroom.map(MeanPicture);
 report("#A8",answer)    
 </script>
     </div>
@@ -131,7 +150,17 @@ report("#A8",answer)
         <li>finalGrade</li>
     </ul>
 <script>
-var answer="please complete";
+    var ListPenguins = function(penguin)
+    {
+        var obj = {}
+        obj.picture = penguin.picture;
+        obj.quizMean = d3.mean(penguin.quizes.map(getGrade));
+        obj.testMean = d3.mean(penguin.test.map(getGrade));
+        obj.HWmean = d3.mean(penguin.homework.map(getGrade));
+        obj.final = penguin.final;
+        return obj
+    };
+var answer=ListPenguins;
 report("#A9",answer)    
 </script>
     </div>
@@ -139,7 +168,7 @@ report("#A9",answer)
 <div id="A10">
 <h3>With one line of code, return a list of objects where each objects contains all of the summary info about each penguin.</h3>
 <script>
-var answer="please complete";
+var answer=classroom.map(ListPenguins);
 report("#A10",answer)    
 </script>
     </div>
@@ -158,7 +187,14 @@ report("#A10",answer)
 <h3>Write a function that takes the classroom data and returns an array of objects.  Each object will have two attributes: a picture and the final grade in the class.</h3>
     
 <script>
-
+var getData = function(penguin)
+{
+        var obj = {}
+        obj.img = penguin.picture;
+        obj.fin = penguin.final;
+        return obj
+};
+    var answer = classroom.map(getData);
     report("#B1",answer);
 </script>
     </div>
@@ -176,8 +212,15 @@ report("#A10",answer)
 <h3>Write a function to find the average grade of all students on the first quiz.</h3>
     <p>Here is what you should get.=6.217391304347826</p>
 <script>
-var answer="Please Complete";
-report("#C1",answer)    
+
+    var AllQuizMeans = function(penguin)
+    {
+        var array = penguin.quizes.map(getGrade)
+        return array 
+    };
+
+var answer=d3.mean(AllQuizMeans);
+report("#C1",answer);    
 </script>
     </div>
     
