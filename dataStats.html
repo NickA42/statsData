@@ -70,10 +70,10 @@ report("#A3",answer)
 <div id="A4">
 <h3>Find the mean quiz score of each penguins.  Use one line of "code"</h3>
 <script>
-    getMeanforpenguins(classroom[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19])
+  
     
     
-var answer= getMeanforpenguins(classroom[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
+var answer= classroom.map(getMeanforpenguins)
 ;
 report("#A4",answer)    
 </script>
@@ -82,15 +82,10 @@ report("#A4",answer)
 <div id="A5">
 <h3>Find the mean of all the quiz score of the class. </h3>
 <script>
-    var getMeanforclassroom = function(classmean)
-    {
-        
-        var vals2 = classroom.quizes.map(getGrade)
-        return d3.mean(vals2)
-    }
+ 
     
     
-var answer=getMeanforclassroom(classmean);
+var answer=d3.mean(classroom.map(getMeanforpenguins));
 report("#A5",answer)    
 </script>
     </div>
