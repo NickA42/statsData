@@ -212,14 +212,14 @@ var getData = function(penguin)
 <h3>Write a function to find the average grade of all students on the first quiz.</h3>
     <p>Here is what you should get.=6.217391304347826</p>
 <script>
-
-    var AllQuizMeans = function(penguin)
+    
+    var getFirst = function(penguin)
     {
-        var array = penguin.quizes.map(getGrade)
-        return array 
+        var quiz = penguin.quizes[0].grade;
+        return quiz
     };
-
-var answer=d3.mean(AllQuizMeans);
+    
+var answer=(d3.mean(classroom.map(getFirst)));
 report("#C1",answer);    
 </script>
     </div>
